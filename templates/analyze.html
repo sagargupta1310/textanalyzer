@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Analysis Result</title></head>
+<body>
+    <h2>Original Text:</h2>
+    <p>{{ original }}</p>
+    <h2>Analyzed Text:</h2>
+    <p>{{ analyzed }}</p>
+
+    {% if char_count is not None %}
+    <h3>Character Count: {{ char_count }}</h3>
+    {% endif %}
+
+    <a href="/">Back</a>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Analyzer</title>
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 16px;
+        }
+
+        .options {
+            margin: 20px 0;
+        }
+
+        .options label {
+            display: block;
+            margin: 8px 0;
+            font-size: 16px;
+            color: #444;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        @media (max-width: 480px) {
+            textarea {
+                height: 120px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Text Analyzer</h2>
+        <form action="/analyze/" method="post">
+            {% csrf_token %}
+            <textarea name="text" placeholder="Enter your text here..."></textarea>
+            
+            <div class="options">
+                <label><input type="checkbox" name="removepunc"> Remove Punctuation</label>
+                <label><input type="checkbox" name="uppercase"> Convert to UPPERCASE</label>
+                <label><input type="checkbox" name="lowercase"> Convert to lowercase</label>
+                <label><input type="checkbox" name="removenewlines"> Remove Newlines</label>
+                <label><input type="checkbox" name="removespaces"> Remove Extra Spaces</label>
+                <label><input type="checkbox" name="charcount"> Show Character Count</label>
+            </div>
+
+            <button type="submit">Analyze Text</button>
+        </form>
+    </div>
+</body>
+</html>
